@@ -1,57 +1,96 @@
-# Sample Hardhat 3 Beta Project (`mocha` and `ethers`)
+# 🏦 Xnode Exchange
 
-This project showcases a Hardhat 3 Beta project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+Xnode Exchange is a decentralized  built on Solidity and deployed using Hardhat. , 
+---
 
-To learn more about the Hardhat 3 Beta, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3 Beta](https://hardhat.org/hardhat3-beta-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+## 📦 Tech Stack
 
-## Project Overview
+- Solidity (v0.8.x)
+- Hardhat — Development framework
+- Ethers.js — For contract interaction
+- Chai/Mocha — For testing
+- Hardhat Ignition — Deployment orchestration
+- dotenv — For environment variables
 
-This example project includes:
+---
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+## 📁 Project Structure
 
-## Usage
+```
+Xnode-H3/
+├── contracts/            # Solidity smart contracts
+├── test/                 # Unit tests using Chai
+├── scripts/              # Optional deploy or utility scripts
+├── ignition/             # Hardhat Ignition deployment modules
+├── .env                  # Private env variables (not committed)
+├── .env.example          # Sample file showing env variable names
+├── hardhat.config.js     # Hardhat config
+├── package.json          # Dependencies and scripts
+```
 
-### Running Tests
+---
 
-To run all the tests in the project, execute the following command:
+## ⚙️ Environment Setup
 
-```shell
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/palash2397/Xnode-H3.git
+cd Xnode-H3
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Setup Environment Variables
+
+Create a `.env` file in the root directory.  
+All required credentials and variable names are listed in the `.env.example` file.
+
+```bash
+cp .env.example .env
+```
+
+> ⚠️ Never commit your `.env` file — it’s excluded via `.gitignore`.
+
+---
+
+## 🚀 Usage Guide
+
+### ✅ Compile Contracts
+
+```bash
+npx hardhat compile
+```
+
+### 🧪 Run Tests
+
+```bash
 npx hardhat test
 ```
 
-You can also selectively run the Solidity or `mocha` tests:
+With gas report:
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
+```bash
+REPORT_GAS=true 
 ```
 
-### Make a deployment to Sepolia
+### 🌐 Run Local Hardhat Node
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
-
-To run the deployment to a local chain:
-
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
+```bash
+npx hardhat node
 ```
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
+### 📦 Deploy Using Hardhat Ignition
 
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
+```bash
+npx hardhat ignition deploy ./ignition/modules/Reward.js
 ```
 
-After setting the variable, you can run the deployment with the Sepolia network:
 
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+
+
+
